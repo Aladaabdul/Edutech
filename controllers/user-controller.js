@@ -25,7 +25,7 @@ async function createUser(req, res) {
 
     let existingUser;
 
-    // Check if user already exist using Email. Email is set to Unique
+    // Check if user already exist using Email. Email field is set to Unique
     try {
         existingUser = await userModel.findOne({email})
     } catch(error) {
