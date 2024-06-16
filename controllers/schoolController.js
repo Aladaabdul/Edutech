@@ -29,12 +29,13 @@ exports.createSchool = async (req, res, next) => {
     })
 
     try {
-
+        console.log("Incoming request body:", req.body);
         const school = await createSchool.save()
         if (school) {
             return res.status(201).json({
                 message: "school  created ",
-                data: school
+                data: school,
+
             })
 
         }
