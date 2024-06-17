@@ -29,9 +29,10 @@ exports.createSchool = async (req, res, next) => {
     })
 
     try {
-        console.log("Incoming request body:", req.body);
+        // console.log("Incoming request body:", req.body);
         const school = await createSchool.save()
         if (school) {
+
             return res.status(201).json({
                 message: "school  created ",
                 data: school,
@@ -66,7 +67,7 @@ exports.getschool = async (req, res, next) => {
     try {
 
         //  get all school  
-        const getschool = await School.find().select('schoolName location  schoolDescription ')
+        const getschool = await School.find().select('schoolName location shortName  courses schoolDescription ')
         return res.status(200).json({
             message: ' all  school data found',
             data: getschool
