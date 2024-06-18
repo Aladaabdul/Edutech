@@ -6,14 +6,15 @@ const Schema = mongoose.Schema
 const schoolSchema = new Schema({
     schoolName: {
         type: String,
-        // unique: true,
+        unique: true,
         trim: true,
         // lowercase: true,
         required: [true, '  school name  is  required']
     },
     shortName: {
         type: String,
-        // Ensure shortName is unique
+        default: '',  // Ensure shortName is unique
+        unique: true,
     },
 
     schoolDescription: {
