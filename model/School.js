@@ -6,7 +6,7 @@ const Schema = mongoose.Schema
 const schoolSchema = new Schema({
     schoolName: {
         type: String,
-        unique: true,
+        // unique: true,
         trim: true,
         // lowercase: true,
         required: [true, '  school name  is  required']
