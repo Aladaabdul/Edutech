@@ -54,7 +54,8 @@ const schoolSchema = new Schema({
     },
     location: {
         type: String,
-        required: [true, "location is  required"],
+
+        //required: [true, "location is  required"],
         trim: true
     },
     vice_chancellor: {
