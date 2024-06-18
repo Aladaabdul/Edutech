@@ -53,7 +53,7 @@ exports.createSchool = async (req, res, next) => {
         if (!school) {
             return res.status(400).json({ message: "error occured" })
         }
-        return res.status(201).json({ message: "data created" })
+        return res.status(201).json({ message: "data created", school: school })
 
     }
     catch (error) {
