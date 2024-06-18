@@ -13,7 +13,7 @@ const schoolSchema = new Schema({
     },
     shortName: {
         type: String,
-        default: '',  // Ensure shortName is unique
+        // Ensure shortName is unique
     },
 
     schoolDescription: {
