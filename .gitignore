@@ -1,2 +1,4 @@
 node_modules/
 .env
+model/r.js
+model/transformedUniversities.json
