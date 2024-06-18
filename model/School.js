@@ -13,9 +13,9 @@ const schoolSchema = new Schema({
     },
     shortName: {
         type: String,
-        //unique: true,
-        default: ""
-        //required: [true, '  short name  is  required']
+        default: '',
+        //required: [true, "location is  required"],
+        trim: true
     },
     schoolDescription: {
         type: String,
@@ -55,8 +55,7 @@ const schoolSchema = new Schema({
     },
     location: {
         type: String,
-        default: ""
-        ,
+        default: '',
         //required: [true, "location is  required"],
         trim: true
     },
