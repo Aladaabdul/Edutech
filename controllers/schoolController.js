@@ -2,59 +2,77 @@ const School = require('../model/School')
 
 
 exports.createSchool = async (req, res, next) => {
-    const {
-        schoolName,
-        schoolDescription,
-        shortName,
-        schoolrequirement: {
-            schoolsitting,
-            jamb,
-            postUtme,
-        },
-        location,
-        schooltype,
-        courses } = req.body
-    const createSchool = new School({
-        schoolName,
-        shortName,
-        schoolDescription,
-        schoolrequirement: {
-            schoolsitting,
-            jamb,
-            postUtme,
-        },
-        location,
-        schooltype,
-        courses,
-    })
+    // const {
+    //     schoolName,
+    //     schoolDescription,
+    //     shortName,
+    //     year_of_establishment,
+    //     vice_chancellor,
+    //     url,
+    //     schoolrequirement: {
+    //         schoolsitting,
+    //         jamb,
+    //         postUtme,
+    //     },
+    //     location,
+    //     schooltype,
+    //     courses } = req.body
+    // const createSchool = new School({
+    //     schoolName,
+    //     shortName,
+    //     vice_chancellor,
+    //     year_of_establishment,
+    //     url,
+    //     schoolDescription,
+    //     schoolrequirement: {
+    //         schoolsitting,
+    //         jamb,
+    //         postUtme,
+    //     },
+    //     location,
+    //     schooltype,
+    //     courses,
+    // })
 
     try {
         // console.log("Incoming request body:", req.body);
-        const school = await createSchool.save()
-        if (school) {
+        // const school = await createSchool.save()
+        // if (school) {
 
-            return res.status(201).json({
-                message: "school  created ",
-                data: school,
+        //     return res.status(201).json({
+        //         message: "school  created ",
+        //         data: school,
 
-            })
+        //     })
 
+        // }
+        const data = req.body;
+
+        const school = await School.insertMany(data)
+
+        if (!school) {
+            return res.status(400).json({ message: "error occured" })
         }
+        return res.status(201).json({ message: "data created" })
 
     }
     catch (error) {
+        return res.status(400).json({
+            message: " error occured",
+            Error: error.message
+        })
 
-        if (error.name === 'ValidationError') {
-            const messages = Object.values(error.errors).map(err => err.message);
-            return res.status(400).json({ error: messages });
-        } else {
-            res.status(400).json({
-                message: " error occured",
-                Error: error.message
-            })
+        // if (error.name === 'ValidationError') {
+        //     const messages = Object.values(error.errors).map(err => err.message);
+        //     return res.status(400).json({ error: messages });
+        // } else {
+        //     res.status(400).json({
+        //         message: " error occured",
+        //         Error: error.message
+        //     })
 
 
-        }
+        // }
 
 
 

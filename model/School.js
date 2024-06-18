@@ -18,6 +18,7 @@ const schoolSchema = new Schema({
     schoolDescription: {
         type: String,
         trim: true,
+        default: "school  description",
         required: [true, 'description is  required']
 
     },
@@ -56,7 +57,20 @@ const schoolSchema = new Schema({
         required: [true, "location is  required"],
         trim: true
     },
+    vice_chancellor: {
+        type: String,
+        default: ''
+    },
+    year_of_establishment: {
+        type: String,  // Assuming year can be stored as string
+        trim: true,
 
+    },
+
+    url: {
+        type: String,
+        default: ''
+    },
     courses: {
 
         type: Array,
