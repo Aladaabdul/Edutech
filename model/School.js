@@ -14,9 +14,6 @@ const schoolSchema = new Schema({
     shortName: {
         type: String,
         default: '',  // Ensure shortName is unique
-        sparse: true,
-        //required: [true, "location is  required"],
-        trim: true
     },
 
     schoolDescription: {
