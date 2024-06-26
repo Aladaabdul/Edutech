@@ -6,6 +6,10 @@ const schoolRouter = require("./routes/school-routes")
 
 const app = express()
 
+
+connectTomongo();
+app.use(express.json())
+
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*'); // Allow all origins
     res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
@@ -13,8 +17,6 @@ app.use((req, res, next) => {
     next();
 });
 
-connectTomongo();
-app.use(express.json())
 
 app.use("/v1/api/user", userRouter);
 app.use("/v1/api/school", schoolRouter);
