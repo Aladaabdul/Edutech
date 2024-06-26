@@ -7,8 +7,10 @@ const schoolRouter = require("./routes/school-routes")
 const app = express()
 
 
+
 connectTomongo();
 app.use(express.json())
+
 
 
 app.use("/v1/api/user", userRouter);
